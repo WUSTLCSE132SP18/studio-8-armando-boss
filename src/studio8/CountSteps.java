@@ -1,7 +1,9 @@
 package studio8;
 
-import jssc.SerialPort;
-import jssc.SerialPortException;
+import java.io.File;
+import java.io.FileNotFoundException;
+//import java.nio.file.*;
+import java.util.Scanner;
 
 // TODO: Develop an algorithm to count steps in accelerometer data
 //    Major steeps:
@@ -10,27 +12,36 @@ import jssc.SerialPortException;
 //       3. Develop and test algorithms to count the "peaks" in the data.
 
 public class CountSteps{
-	
-	SerialPort port;
-
-	private boolean debug;  // Indicator of "debugging mode"
-	
-	// This function can be called to enable or disable "debugging mode"
-	void setDebug(boolean mode) {
-		debug = mode;
-	}	
-	
-
-	// Constructor for the SerialComm class
-	public SerialComm(String name) throws SerialPortException {
-		port = new SerialPort(name);		
-		port.openPort();
-		port.setParams(SerialPort.BAUDRATE_9600,
-			SerialPort.DATABITS_8,
-			SerialPort.STOPBITS_1,
-			SerialPort.PARITY_NONE);
+	//need to use .split next time i guess
+	public static void main(String[] args) {
 		
-		debug = false; // Default is to NOT be in debug mode
+		String csvFile = "/Users/jboss/git/studio-8-armando-boss/data/data.csv"; 
+		String line = ""; 
+		String cvsSplit = ",";  
+		
+		File file = new File(csvFile); 
+				
+		try {
+			//reads from file with Scanner class
+			Scanner in = new Scanner(file); 
+			//hasNext() loops line-by-line
+			while(in.hasNext()) {
+				
+				//read single line, put in string
+				String data = in.next();
+				System.out.println(data);
+				
+			}
+			//after loop, close scanner
+			in.close(); 
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
+		
+		
 	}
-	
 }
