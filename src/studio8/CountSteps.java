@@ -15,7 +15,7 @@ public class CountSteps{
 	//need to use .split next time i guess
 	public static void main(String[] args) {
 		
-		String csvFile = "/Users/jboss/git/studio-8-armando-boss/data/data.csv"; 
+		String csvFile = "/Users/Zanees/git/studio-8-armando-boss/data/data.csv"; 
 		String line = ""; 
 		String cvsSplit = ",";  
 		
